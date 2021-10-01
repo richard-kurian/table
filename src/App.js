@@ -3,6 +3,7 @@ import './App.css';
 import data from './mock-data.json';
 import { useState } from 'react';
 import {nanoid} from 'nanoid'; // lest see if the order of the imports matters
+import ReadOnlyRow from './components/ReadOnlyRow';
 
 function App() {
 
@@ -58,15 +59,7 @@ function App() {
         </thead>
         <tbody>
           {contacts.map((contact)=>(
-
-
-<       tr>
-            <td>{contact.fullName}</td>
-            <td>{contact.address}</td>
-            <td>{contact.phoneNumber}</td>
-            <td>{contact.email}</td>
-
-          </tr>
+              <ReadOnlyRow contact={contact}/>
           ))}
           
         </tbody>
@@ -98,6 +91,7 @@ function App() {
         required="required"
         placeholder="enter a  number.."
         onChange={handleFormChange}
+
         >
        </input>
 
